@@ -73,8 +73,3 @@ docker build -t ecommerce-api .
 
 El proyecto cuenta con un flujo de trabajo de **GitHub Actions** que ejecuta los tests automáticamente en cada push a la rama `master`.
 
-Para desplegar en un VPS usando **Coolify**:
-1. Conecta tu repositorio de GitHub a Coolify.
-2. Coolify detectará automáticamente el `Dockerfile`.
-3. Configura las variables de entorno en el panel de Coolify.
-4. ¡Listo! Coolify desplegará la aplicación automáticamente.
