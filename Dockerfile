@@ -28,9 +28,6 @@ RUN npm ci --only=production
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 
-# Generate prisma client for production
-RUN npx prisma generate
-
 EXPOSE 3000
 
 CMD ["node", "dist/server.js"]
