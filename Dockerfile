@@ -24,10 +24,13 @@ COPY prisma ./prisma/
 # Install only production dependencies
 RUN npm ci --only=production
 
+# Install Prisma CLI for migrations
+RUN npm install -g prisma@5.22.0
+
 # Copy built assets from builder stage
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 
 EXPOSE 3000
 
-CMD ["node", "dist/server.js"]
+CMD ["npm", "run", "start:migrate"]
